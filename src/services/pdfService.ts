@@ -2,8 +2,11 @@
 import * as pdfjs from 'pdfjs-dist';
 import { analyzeTextWithGoogleAI, answerQuestionWithGoogleAI } from './googleAIService';
 
-// Set the worker source for pdf.js
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+// Import worker from pdfjs-dist
+import * as pdfjsWorker from 'pdfjs-dist/build/pdf.worker.mjs';
+
+// Set the worker source properly
+pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 export interface PDFAnalysisResult {
   text: string;
@@ -13,12 +16,17 @@ export interface PDFAnalysisResult {
 
 export const extractTextFromPDF = async (file: File): Promise<string> => {
   try {
+    console.log("Starting PDF extraction...");
     const arrayBuffer = await file.arrayBuffer();
+    console.log("File loaded as ArrayBuffer");
+    
     const pdf = await pdfjs.getDocument({ data: arrayBuffer }).promise;
+    console.log(`PDF loaded with ${pdf.numPages} pages`);
     
     let fullText = '';
     
     for (let i = 1; i <= pdf.numPages; i++) {
+      console.log(`Processing page ${i}/${pdf.numPages}`);
       const page = await pdf.getPage(i);
       const textContent = await page.getTextContent();
       const pageText = textContent.items
@@ -28,6 +36,7 @@ export const extractTextFromPDF = async (file: File): Promise<string> => {
       fullText += pageText + '\n\n';
     }
     
+    console.log("Text extraction complete");
     return fullText;
   } catch (error) {
     console.error('Error extracting text from PDF:', error);
