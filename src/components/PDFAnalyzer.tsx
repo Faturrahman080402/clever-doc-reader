@@ -11,10 +11,9 @@ import { useToast } from "@/components/ui/use-toast";
 
 interface PDFAnalyzerProps {
   result: PDFAnalysisResult;
-  apiKey: string;
 }
 
-export const PDFAnalyzer: React.FC<PDFAnalyzerProps> = ({ result, apiKey }) => {
+export const PDFAnalyzer: React.FC<PDFAnalyzerProps> = ({ result }) => {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [isAnswering, setIsAnswering] = useState(false);
@@ -33,7 +32,7 @@ export const PDFAnalyzer: React.FC<PDFAnalyzerProps> = ({ result, apiKey }) => {
     
     try {
       setIsAnswering(true);
-      const response = await answerQuestion(question, result.text, apiKey);
+      const response = await answerQuestion(question, result.text);
       setAnswer(response);
     } catch (error) {
       console.error("Error answering question:", error);
