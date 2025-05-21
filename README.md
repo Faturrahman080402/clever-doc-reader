@@ -1,73 +1,75 @@
-# Welcome to your Lovable project
+# Clever Doc Reader
 
-## Project info
+**Clever Doc Reader** is a modern web application designed to facilitate efficient document reading and management. Built with contemporary web development tools, it offers a responsive and user-friendly interface suitable for various document-related tasks.
 
-**URL**: https://lovable.dev/projects/7c9af45a-1714-466f-b909-095309b77453
+## 🧠 Project Purpose
 
-## How can I edit this code?
+The primary aim of Clever Doc Reader is to provide users with an intuitive platform for reading and managing documents seamlessly. Whether for academic, professional, or personal use, this application serves as a reliable tool for document interaction.
 
-There are several ways of editing your application.
+## 🚀 Features
 
-**Use Lovable**
+- ⚡ **Rapid Development** with [Vite](https://vitejs.dev/)
+- 🎨 **Responsive Design** using [Tailwind CSS](https://tailwindcss.com/)
+- 🧱 **Modular Architecture** with TypeScript
+- 🌐 **Editable via [Lovable.dev](https://lovable.dev/)**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/7c9af45a-1714-466f-b909-095309b77453) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
+## 🛠️ Technologies Used
 
 - Vite
 - TypeScript
-- React
-- shadcn-ui
 - Tailwind CSS
+- PostCSS
+- Lovable.dev integration
 
-## How can I deploy this project?
+## 📁 Project Structure
 
-Simply open [Lovable](https://lovable.dev/projects/7c9af45a-1714-466f-b909-095309b77453) and click on Share -> Publish.
+```
+clever-doc-reader/
+├── public/                 # Static assets
+├── src/                    # Source code
+│   └── index.ts            # Application entry point
+├── components.json         # Component definitions for Lovable.dev
+├── index.html              # HTML entry point
+├── tailwind.config.ts      # Tailwind CSS configuration
+├── tsconfig.json           # TypeScript configuration
+├── vite.config.ts          # Vite build configuration
+├── package.json            # Project dependencies and scripts
+└── README.md               # Project documentation
+```
 
-## Can I connect a custom domain to my Lovable project?
+## ⚙️ Getting Started
 
-Yes, you can!
+To run the project locally:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### 1. Clone the repository
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+```bash
+git clone https://github.com/Faturrahman080402/clever-doc-reader.git
+cd clever-doc-reader
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the development server
+
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:3000`.
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to fork the repository and submit a pull request with your improvements.
+
+## 📄 License
+
+This project is currently not licensed. For usage and modification rights, please contact the repository owner.
+
+---
+
+**GitHub:** [Faturrahman080402/clever-doc-reader](https://github.com/Faturrahman080402/clever-doc-reader)
