@@ -61,8 +61,8 @@ export const PDFUploader: React.FC<PDFUploaderProps> = ({ onPdfUpload, isLoading
       return;
     }
     
-    if (file.size > 10 * 1024 * 1024) { // 10MB limit
-      const errorMessage = "File size exceeds 10MB limit.";
+    if (file.size > 30 * 1024 * 1024) { // 30MB limit
+      const errorMessage = "File size exceeds 30MB limit.";
       setFileError(errorMessage);
       toast({
         title: "File too large",

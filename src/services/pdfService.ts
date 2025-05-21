@@ -22,6 +22,11 @@ export const extractTextFromPDF = async (file: File): Promise<string> => {
     const pdf = await pdfjs.getDocument({ data: arrayBuffer }).promise;
     console.log(`PDF loaded with ${pdf.numPages} pages`);
     
+    // Check if the PDF exceeds the page limit
+    if (pdf.numPages > 300) {
+      throw new Error(`PDF has ${pdf.numPages} pages, which exceeds the 300-page limit`);
+    }
+    
     let fullText = '';
     
     for (let i = 1; i <= pdf.numPages; i++) {
@@ -39,7 +44,7 @@ export const extractTextFromPDF = async (file: File): Promise<string> => {
     return fullText;
   } catch (error) {
     console.error('Error extracting text from PDF:', error);
-    throw new Error('Failed to extract text from PDF');
+    throw new Error(typeof error === 'object' && error !== null ? (error as Error).message : 'Failed to extract text from PDF');
   }
 };
 
