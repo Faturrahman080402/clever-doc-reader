@@ -1,12 +1,11 @@
-
 import * as pdfjs from 'pdfjs-dist';
 import { analyzeTextWithGoogleAI, answerQuestionWithGoogleAI } from './googleAIService';
 
-// Import worker from pdfjs-dist
-import * as pdfjsWorker from 'pdfjs-dist/build/pdf.worker.mjs';
-
 // Set the worker source properly
-pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
+if (typeof window !== 'undefined' && 'Worker' in window) {
+  // Use dynamic import to load the worker
+  pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+}
 
 export interface PDFAnalysisResult {
   text: string;
