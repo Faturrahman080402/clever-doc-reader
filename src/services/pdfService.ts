@@ -2,13 +2,13 @@
 import * as pdfjs from 'pdfjs-dist';
 import { analyzeTextWithGoogleAI, answerQuestionWithGoogleAI } from './googleAIService';
 
-// Import the worker directly
-import pdfWorker from 'pdfjs-dist/build/pdf.worker.min.js';
-
-// Set the worker source properly
+// Configure the worker source using a valid approach
 if (typeof window !== 'undefined' && 'Worker' in window) {
-  // Set the worker directly instead of using CDN
-  pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker;
+  const workerUrl = new URL(
+    'pdfjs-dist/build/pdf.worker.mjs',
+    import.meta.url
+  );
+  pdfjs.GlobalWorkerOptions.workerSrc = workerUrl.toString();
 }
 
 export interface PDFAnalysisResult {
